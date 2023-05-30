@@ -1,0 +1,30 @@
+.menu_full{
+    min-width: 730px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(40.7742px);
+}
+.menu_text{
+    display: flex;
+    flex-direction: row;
+    margin: 0 20px;
+    font-family: 'Barlow Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 8px;
+    color: #ffff;
+    line-height: 19px;
+    letter-spacing: 2.7px;
+}
+.link{
+    text-decoration: none;
+}
+.link:focus{
+    border-bottom: 2px solid #ffff;
+}
+.menu_number{
+    margin-right: 10px;
+}

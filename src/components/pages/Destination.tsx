@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Planets, PlanetsLabel } from "../utils/DestinationList"
 import Cards from "../UI/Molecules/Cards";
 import { CardPlanets} from "../utils/CardList"
+import "../../styles/destination.css"
 
 function Destination() {
   const [currentValue, setCurrentValue] = useState<number>(0);
@@ -12,7 +13,7 @@ function Destination() {
   const showCard = currentValue >= 0 && currentValue < CardPlanets.length;
 
   return (
-    <div>
+    <div className="destination_full">
       <div>
         <h1><span>01 </span>PICK YOUR DESTINATION</h1>
       </div>

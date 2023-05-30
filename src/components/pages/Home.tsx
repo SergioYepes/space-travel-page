@@ -1,11 +1,12 @@
 
 import explore from "../../assets/homeExplore.svg"
 import { Link } from 'react-router-dom'
+import "../../styles/home.css"
 
 function Home() {
   return (
-    <div>
-      <div>
+    <div className="home_full">
+      <div className="home_card">
         <h2>
             SO, YOU WANT TO TRAVEL TO
         </h2>
@@ -17,7 +18,7 @@ function Home() {
         </h4>
       </div>
       <div>
-        <Link to="/Description">
+        <Link to="/Destination">
             <img src={explore} alt="exploreImage" />
         </Link>
       </div>

@@ -1,13 +1,14 @@
 import MenuItem from '../Atoms/MenuItem'
 import { Link } from 'react-router-dom'
 import { MenuArray } from '../../utils/MenuList'
+import "../../../styles/menu.css"
 
 function Menu() {
   return (
-    <div>
+    <div className='menu_full'>
       {MenuArray.map(menu=>{
         return (
-            <Link to={menu.link} key={menu.number}>
+            <Link className='link' to={menu.link} key={menu.number}>
                 <MenuItem Number={menu.number} Label={menu.label} />
             </Link>
         )
