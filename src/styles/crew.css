@@ -1,0 +1,115 @@
+.crew_full{
+    background-color: aquamarine;
+    
+}
+.crew_tablet{
+    background-color: blue;
+}
+.crew_mobile{
+    margin-top: 20px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .crew_title span{
+        font-family: 'Barlow Condensed';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 19px;
+        letter-spacing: 2.7px;
+        color: #FFFFFF;
+        mix-blend-mode: normal;
+        opacity: 0.25;
+    }
+    & h2 {
+        margin-bottom: 70px;
+        font-family: 'Barlow Condensed';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 19px;
+        letter-spacing: 2.7px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+    }
+    .crew_position{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    .crew_showCard{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .crew_buttonsCont{
+        display: flex;
+        flex-direction: row;
+        gap: 35px;
+        margin: 30px auto;
+    }
+    .crew_people{
+        max-width: 275px;
+    }
+    .card_line{
+       display: none;
+    }
+    .crew_button{
+        & button{
+            mix-blend-mode: normal;
+            opacity: 0.17;
+            display: block;
+            background: #FFFFFF;
+            border: #0000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        & button:focus{
+            opacity: 1;
+        }
+    }
+    .crew_cardCont{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & h5{
+            font-family: 'Bellefair';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 18px;
+            margin: 10px 0;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            mix-blend-mode: normal;
+            opacity: 0.5;
+        }
+        .card_cont{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card_title{
+            font-family: 'Bellefair';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 35px;
+            line-height: 28px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+        }
+        .card_description{
+            font-family: 'Barlow';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 30px;
+            text-align: center;
+            color: #D0D6F9;
+        }
+    }
+}

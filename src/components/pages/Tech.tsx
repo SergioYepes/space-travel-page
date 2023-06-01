@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Cards from "../UI/Molecules/Cards";
 import { techList } from "../utils/CardList";
 import { techImg } from "../utils/TechList";
+import "../../styles/technology.css"
+import { ScreenSizeContext } from "../context/useMobile";
 function Tech (){
     const [currentValue, setCurrentValue] = useState<number>(0);
     const buttons = Array.from({ length: techList.length }, (_, i) => i + 1);
@@ -9,35 +11,41 @@ function Tech (){
     const handleClick = (index: number) => {
         setCurrentValue(index);
     };
+  const {isMobile, isTablet, isDesktop} = useContext(ScreenSizeContext)
+
     return(
-        <div>
-            <div>
+        <div className={isDesktop ? "tech_full" : isTablet ? "tech_tablet" : isMobile ? "tech_mobile" : ""}>
+            <div className="tech_title">
                 <h1><span>03 </span>SPACE LAUNCH 101</h1>
             </div>
-            <div>
-                {buttons.map((__, index) => {
-                    return (
-                        <div>
-                            <button key={index} onClick={() => handleClick(index)}>
-                                {index + 1}
-                            </button>
+            <div className="tech_position">
+                <div className="tech_fullCardCont">
+                    <div className="tech_buttonsCont">
+                        {buttons.map((__, index) => {
+                            return (
+                                <div className="tech_button">
+                                    <button key={index} onClick={() => handleClick(index)}>
+                                        {index + 1}
+                                    </button>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div>
+                    {showCard && (
+                        <div className="tech_cardCont">
+                            <h5>THE TERMINOLOGY ...</h5>
+                                <Cards
+                                    title={techList[currentValue].title}
+                                    description={techList[currentValue].description}
+                                />
                         </div>
-                    );
-                })}
-            </div>
-            <div>
-            {showCard && (
-                <div>
-                    <h5>THE TERMINOLOGY</h5>
-                        <Cards
-                            title={techList[currentValue].title}
-                            description={techList[currentValue].description}
-                        />
+                    )}
+                    </div>
                 </div>
-            )}
-            </div>
-            <div>
-                <img src={techImg[currentValue].src} alt={techImg[currentValue].alt} />
+                <div className="tech_image">
+                    <img src={techImg[currentValue].src} alt={techImg[currentValue].alt} />
+                </div>
             </div>
         </div>
     )

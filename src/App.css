@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap');
 :root {
   --main-color-one  : #AD1AC7;
   --main-color-dark : #480095;
@@ -17,4 +18,8 @@ body {
   font-family: 'Montserrat', sans-serif;
   margin     : 0;
   padding    : 0;
+}
+.mobile-bg {
+  background-size: cover;
+  background-position: center;
 }

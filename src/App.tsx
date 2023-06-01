@@ -6,31 +6,39 @@ import Destination from './components/pages/Destination'
 import Crew from './components/pages/Crew'
 import Tech from './components/pages/Tech'
 import def from "./assets/homeBackground.jpg"
+import defMobile from "./assets/mobileHomeBackground.jpg"
 import des from  "./assets/destinationBackground.png"
+import desMobile from "./assets/mobileDestinationBackground.jpg"
 import cre from "./assets/crewBackground.png"
+import creMobile from "./assets/mobileCrewBackground.jpg"
 import tec from "./assets/techBackground.png"
+import tecMobile from "./assets/mobileTecnologyBackground.jpg"
+
+import { useContext } from 'react'
+import { ScreenSizeContext } from './components/context/useMobile'
 
 
 function App() {
+const {isDesktop} = useContext(ScreenSizeContext)
  const location = useLocation();
  const defaultImg =  def
  let backgroundImg = defaultImg
  switch (location.pathname) {
   case "/Destination":
-    backgroundImg = des;
+    isDesktop ? backgroundImg = des : backgroundImg = desMobile;
     break;
   case "/Crew":
-    backgroundImg = cre;
+    isDesktop ? backgroundImg = cre : backgroundImg = creMobile;
     break;
   case "/Tech":
-    backgroundImg = tec;
+    isDesktop ? backgroundImg = tec : backgroundImg = tecMobile;
     break;
   default:
-    backgroundImg = defaultImg;
+    isDesktop ? backgroundImg = defaultImg : backgroundImg = defMobile;
 }
 
   return (
-    <div style={{backgroundImage: `url(${backgroundImg})`}}>
+    <div className={!isDesktop ? "mobile-bg" : ""} style={{ backgroundImage: `url(${backgroundImg})` }}>
       <Header/>
       <Routes>
         <Route path="/" element ={<Home/>}/>

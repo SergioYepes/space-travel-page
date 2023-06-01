@@ -1,0 +1,110 @@
+.destination_full{
+    background-color: aquamarine;
+    
+}
+.destination_tablet{
+    background-color: blue;
+}
+.destination_mobile{
+    margin-top: 20px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .destination_title span{
+        font-family: 'Barlow Condensed';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 19px;
+        letter-spacing: 2.7px;
+        color: #FFFFFF;
+        mix-blend-mode: normal;
+        opacity: 0.25;
+    }
+    & h1 {
+        margin-bottom: 70px;
+        font-family: 'Barlow Condensed';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 19px;
+        letter-spacing: 2.7px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+    }
+    .destination_planet{
+        max-width: 275px;
+    }
+    .buttons_cont{
+        display: flex;
+        flex-direction: row;
+        gap: 20px
+    }
+    .button_form button{
+        margin: 20px auto;
+        background-color: #0000;
+        border: #0000;
+        font-family: 'Barlow Condensed';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 26px;
+        line-height: 22px;
+        letter-spacing: 2.3625px;
+        color: #D0D6F9;
+    }
+    .button_form button:focus{
+        color: #FFFFFF;
+        border-bottom: 4px solid #ffff;
+        padding-bottom: 20px;
+    }
+    .card_title{
+        font-family: 'Bellefair';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 100px;
+        line-height: 64px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    .card_description{
+        font-family: 'Barlow';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 25px;
+        text-align: center;
+        color: #D0D6F9;
+    }
+    .card_travelDistance,
+    .card_distanceCont,
+    .card_travelCont{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card_distanceCont h4,
+    .card_travelCont h4{
+        font-family: 'Barlow Condensed';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        letter-spacing: 2.3625px;
+        text-transform: uppercase;
+        color: #D0D6F9;
+    }
+    .card_distanceCont h2,
+    .card_travelCont h2{
+        font-family: 'Bellefair';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 32px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+    }
+
+}

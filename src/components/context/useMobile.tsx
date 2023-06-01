@@ -8,19 +8,21 @@ export const ScreenSizeContext = createContext<ScreenSizeProps>({
 })
 
 export const ScreenSizeProvider=({children}: any)=> {
-    const [isMobile,setMobile]= useState<boolean>(window.innerWidth < 768)
-    const [isDesktop,setDesktop]= useState<boolean>(window.innerWidth < 1240)
-    const [isTablet,setTablet]= useState<boolean>(window.innerWidth < 1024)
+    const [isMobile,setMobile]= useState<boolean>(false)
+    const [isDesktop,setDesktop]= useState<boolean>(false)
+    const [isTablet,setTablet]= useState<boolean>(false)
 
     useEffect(() =>{
         function handleResize(){
-            setDesktop(window.innerWidth<1240)
-            setMobile(window.innerWidth < 768)
-            setTablet(window.innerWidth < 1024)
+            setMobile(window.innerWidth < 767)
+            setTablet(window.innerWidth >= 768 && window.innerWidth <= 1024)
+            setDesktop(window.innerWidth > 1025)
         }
-        window.addEventListener("resize", handleResize)
+            handleResize()
+            window.addEventListener("resize", handleResize)
+        
         return()=>{
-            window.removeEventListener("resize", handleResize)
+            window.removeEventListener("resize", handleResize)    
         }
     },[])
   return (

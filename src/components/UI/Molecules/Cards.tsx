@@ -3,22 +3,23 @@ import { CardProps } from "../../interfaces/CardProps"
 
 function Cards({title,description,distance,time}:CardProps) {
   return (
-    <div>
+    <div className="card_cont">
       <div>
-        <h1>{title}</h1>
+        <h1 className="card_title">{title}</h1>
       </div>
       <div>
-        <p>{description}</p>
+        <p className="card_description">{description}</p>
       </div>
-      <div>
+      <div className="card_line">
         <img src={Line} alt="lineImg"/>
       </div>
-      <div>
+      <div className="card_travelDistance">
         {distance && time && (<>
-        <div>
+        <div className="card_distanceCont">
           <h4>AVG. DISTANCE</h4>
           <h2>{distance}</h2>
-        </div><div>
+        </div>
+        <div className="card_travelCont">
             <h4>EST. TRAVEL TIME</h4>
             <h2>{time}</h2>
           </div>

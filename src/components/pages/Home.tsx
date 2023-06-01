@@ -2,11 +2,14 @@
 import explore from "../../assets/homeExplore.svg"
 import { Link } from 'react-router-dom'
 import "../../styles/home.css"
+import { useContext } from "react"
+import { ScreenSizeContext } from "../context/useMobile"
 
 function Home() {
+  const {isDesktop} = useContext(ScreenSizeContext)
   return (
-    <div className="home_full">
-      <div className="home_card">
+    <div className={isDesktop ? "home_full" : "home_mobile"}>
+      <div className={isDesktop ? "home_card" : "homeCard_mobile"}>
         <h2>
             SO, YOU WANT TO TRAVEL TO
         </h2>

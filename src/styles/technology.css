@@ -1,0 +1,127 @@
+.tech_full{
+    background-color: aquamarine;
+    
+}
+.tech_tablet{
+    background-color: blue;
+}
+.tech_mobile{
+    margin-top: 20px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .tech_title span{
+        font-family: 'Barlow Condensed';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 19px;
+        letter-spacing: 2.7px;
+        color: #FFFFFF;
+        mix-blend-mode: normal;
+        opacity: 0.25;
+    }
+    & h1{
+        margin-bottom: 70px;
+        font-family: 'Barlow Condensed';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 19px;
+        letter-spacing: 2.7px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+    }
+    .tech_position{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    .tech_image{
+        display: flex;
+        max-height: 275px;
+        width: 100vw;
+        & img{
+            object-fit: cover;
+        }    
+    }
+    .tech_fullCardCont{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .tech_buttonsCont{
+        display: flex;
+        flex-direction: row;
+        gap: 100px;
+        margin: 30px auto;
+    }
+    .tech_button{
+        & button{
+            mix-blend-mode: normal;
+            color:#FFFFFF;
+            font-size: 20px;
+            opacity: 0.80;
+            display: block;
+            background: #0000;
+            border: 2px solid #ffff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        & button:focus{
+            background: #FFFFFF;
+            color: black;
+            opacity: 1;
+        }
+    }
+    .tech_cardCont{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & h5{
+            font-family: 'Bellefair';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 18px;
+            margin: 10px 0;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            mix-blend-mode: normal;
+            opacity: 0.5;
+        }
+        .card_cont{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card_title{
+            font-family: 'Bellefair';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 35px;
+            line-height: 28px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+        }
+        .card_description{
+            font-family: 'Barlow';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 25px;
+            text-align: center;
+            color: #D0D6F9;
+            padding: 0 60px;
+        }
+        .card_line{
+            display: none;
+        }
+    }
+}

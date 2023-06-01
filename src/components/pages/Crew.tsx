@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Cards from "../UI/Molecules/Cards";
 import { crewList } from "../utils/CardList";
 import { CrewImg } from "../utils/CrewList";
+import { ScreenSizeContext } from "../context/useMobile";
+import "../../styles/crew.css"
 
 
 function Crew() {
@@ -12,38 +14,43 @@ function Crew() {
     setCurrentValue(index);
   };
 
+  const {isMobile, isTablet, isDesktop} = useContext(ScreenSizeContext)
 
   return (
-    <div>
+    <div className={isDesktop ? "crew_full" : isTablet ? "crew_tablet" : isMobile ? "crew_mobile" : ""}>
       <div>
-        <h2><span>02 </span>MEET YOUR CREW</h2>
+        <h2 className="crew_title"><span>02 </span>MEET YOUR CREW</h2>
       </div>
-      <div>
+      <div className="crew_position">
+        <div className="crew_showCard">
+        {showCard && (
+          <div className="crew_cardCont">
+            <h5>{crewList[currentValue].role}</h5>
+            <Cards
+              title={crewList[currentValue].title}
+              description={crewList[currentValue].description}
+            />
+          </div>
+        )}
+        <div className="crew_buttonsCont">
+          {buttons.map((__, index) => {
+              return (
+                <div className="crew_button">
+                  <button key={index} onClick={() => handleClick(index)}>
+                  </button>
+                </div>
+              );
 
-      {buttons.map((__, index) => {
-          return (
-            <div>
-              <button key={index} onClick={() => handleClick(index)}>
-              </button>
-            </div>
-          );
-
-        })}
-
-      {showCard && (
-        <div>
-          <h5>{crewList[currentValue].role}</h5>
-          <Cards
-            title={crewList[currentValue].title}
-            description={crewList[currentValue].description}
-          />
+            })}
         </div>
-      )}
-        
+          
+        </div>
+        <div className="crew_people">
+          <img src={CrewImg[currentValue].src} alt={CrewImg[currentValue].alt} />
+        </div>
+      
       </div>
-      <div>
-        <img src={CrewImg[currentValue].src} alt={CrewImg[currentValue].alt} />
-      </div>
+
     </div>
   )
 }

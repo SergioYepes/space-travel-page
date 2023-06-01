@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Planets, PlanetsLabel } from "../utils/DestinationList"
 import Cards from "../UI/Molecules/Cards";
 import { CardPlanets} from "../utils/CardList"
 import "../../styles/destination.css"
+import { ScreenSizeContext } from "../context/useMobile";
 
 function Destination() {
   const [currentValue, setCurrentValue] = useState<number>(0);
@@ -11,19 +12,21 @@ function Destination() {
   };
   const buttons = Array.from({ length: Planets.length }, (_, i) => i + 1);
   const showCard = currentValue >= 0 && currentValue < CardPlanets.length;
-
+  const {isMobile, isTablet, isDesktop} = useContext(ScreenSizeContext)
+  
   return (
-    <div className="destination_full">
+    
+    <div className={isDesktop ? "destination_full" : isTablet ? "destination_tablet" : isMobile ? "destination_mobile" : ""}>
       <div>
-        <h1><span>01 </span>PICK YOUR DESTINATION</h1>
+        <h1 className="destination_title"><span>01 </span>PICK YOUR DESTINATION</h1>
       </div>
-      <div>
-            <img src={Planets[currentValue].src} alt={Planets[currentValue].alt} />
+      <div className="destination_planet">
+            <img key={Planets[currentValue].alt} src={Planets[currentValue].src} alt={Planets[currentValue].alt} />
       </div>
-      <div>
+      <div className="buttons_cont">
         {buttons.map((__, index) => {
           return (
-            <div>
+            <div className="button_form">
               <button key={index} onClick={() => handleClick(index)}>
                 {PlanetsLabel[index].label}
             </button>
@@ -31,6 +34,8 @@ function Destination() {
           );
 
         })}
+        
+      </div>
         {showCard && (
         <Cards
           title={CardPlanets[currentValue].title}
@@ -39,8 +44,6 @@ function Destination() {
           time={CardPlanets[currentValue].time}
         />
       )}
-        
-      </div>
     </div>
   )
 }
