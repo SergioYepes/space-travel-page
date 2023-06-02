@@ -46,7 +46,6 @@
 }
 
 .homeCard_mobile{
-    width: 450px;
     height: 382px;
     & h2{
         font-family: 'Barlow Condensed';
