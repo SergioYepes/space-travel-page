@@ -7,7 +7,7 @@ import { useContext } from "react"
 
 
 function Header() {
-  const {isMobile, isTablet, isDesktop} = useContext(ScreenSizeContext)
+  const {isDesktop} = useContext(ScreenSizeContext)
   return (
     <header className="header_full">
       <div className="star">
