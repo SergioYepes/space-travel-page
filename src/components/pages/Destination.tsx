@@ -7,8 +7,11 @@ import { ScreenSizeContext } from "../context/useMobile";
 
 function Destination() {
   const [currentValue, setCurrentValue] = useState<number>(0);
+  const [activeButton, setActiveButton] = useState<number>(0);
+
   const handleClick = (index: number) => {
     setCurrentValue(index);
+    setActiveButton(index);
   };
   const buttons = Array.from({ length: Planets.length }, (_, i) => i + 1);
   const showCard = currentValue >= 0 && currentValue < CardPlanets.length;
@@ -17,7 +20,7 @@ function Destination() {
   return (
     
     <div className={isDesktop ? "destination_full" : isTablet ? "destination_tablet" : isMobile ? "destination_mobile" : ""}>
-      <div>
+      <div className="auxText">
         <h1 className="destination_title"><span>01 </span>PICK YOUR DESTINATION</h1>
       </div>
       <div className="destination_planet">
@@ -26,7 +29,7 @@ function Destination() {
       <div className="buttons_cont">
         {buttons.map((__, index) => {
           return (
-            <div className="button_form">
+            <div className={`button_form ${index === activeButton ? "active" : ""}`}>
               <button key={index} onClick={() => handleClick(index)}>
                 {PlanetsLabel[index].label}
             </button>
@@ -44,6 +47,12 @@ function Destination() {
           time={CardPlanets[currentValue].time}
         />
       )}
+      {/* <div className="container">
+        <div className="div1">Div 1</div>
+        <div className="div2">Div 2</div>
+        <div className="div3">Div 3</div>
+        <div className="div4">Div 4</div>
+      </div> */}
     </div>
   )
 }

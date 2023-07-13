@@ -6,10 +6,14 @@ import "../../styles/technology.css"
 import { ScreenSizeContext } from "../context/useMobile";
 function Tech (){
     const [currentValue, setCurrentValue] = useState<number>(0);
+    const [activeButton, setActiveButton] = useState<number>(0);
+
     const buttons = Array.from({ length: techList.length }, (_, i) => i + 1);
     const showCard = currentValue >= 0 && currentValue < techList.length;
     const handleClick = (index: number) => {
         setCurrentValue(index);
+        setActiveButton(index);
+
     };
   const {isMobile, isTablet, isDesktop} = useContext(ScreenSizeContext)
 
@@ -23,7 +27,7 @@ function Tech (){
                     <div className="tech_buttonsCont">
                         {buttons.map((__, index) => {
                             return (
-                                <div className="tech_button">
+                                <div className={`tech_button ${index === activeButton ? "active" : ""}`}>
                                     <button key={index} onClick={() => handleClick(index)}>
                                         {index + 1}
                                     </button>

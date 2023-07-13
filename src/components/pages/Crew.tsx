@@ -8,17 +8,21 @@ import "../../styles/crew.css"
 
 function Crew() {
   const [currentValue, setCurrentValue] = useState<number>(0);
+  const [activeButton, setActiveButton] = useState<number>(0);
+
   const buttons = Array.from({ length: 4 }, (_, i) => i + 1);
   const showCard = currentValue >= 0 && currentValue < crewList.length;
   const handleClick = (index: number) => {
     setCurrentValue(index);
+    setActiveButton(index);
+
   };
 
   const {isMobile, isTablet, isDesktop} = useContext(ScreenSizeContext)
 
   return (
     <div className={isDesktop ? "crew_full" : isTablet ? "crew_tablet" : isMobile ? "crew_mobile" : ""}>
-      <div>
+      <div className="auxText">
         <h2 className="crew_title"><span>02 </span>MEET YOUR CREW</h2>
       </div>
       <div className="crew_position">
@@ -35,7 +39,7 @@ function Crew() {
         <div className="crew_buttonsCont">
           {buttons.map((__, index) => {
               return (
-                <div className="crew_button">
+                <div className={`crew_button ${index === activeButton ? "active" : ""}`}>
                   <button key={index} onClick={() => handleClick(index)}>
                   </button>
                 </div>
